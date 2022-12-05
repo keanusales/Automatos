@@ -1,24 +1,31 @@
+from os import system
 from string import ascii_letters, digits
 
-LETTERS, DIGITS = ascii_letters + "_", digits
+LETTERS = "_" + ascii_letters
+LDIGITS = LETTERS + digits
 TYPES = ["int", "char", "bool", "float", "double"]
 
-entrie = input("Entrada: ").split()
+def process(entrie: str):
+  convert = entrie.split()
+  return convert[0], "".join(convert[1:])
 
-def automato(entrie: list[str]):
+def automato(entrie: tuple[str, str]):
   def automato(entrie: str):
-    if entrie[0] not in LETTERS: return False
-    if entrie[-1] not in [",", ";"]: return False
-    for letter in entrie[1:-1]:
-      if letter not in LETTERS + DIGITS: return False
-    return True
-  
-  dictdata = {}
-  dictdata[entrie[0]] = (entrie[0] in TYPES)
-  for word in entrie[1:]:
-    dictdata[word[:-1]] = automato(word)
-  
-  return dictdata
+    def automato(state: int, word: str):
+      if state == 1 and word in LETTERS: return 2
+      if state == 2 and word == ",": return 1
+      if state == 2 and word in LDIGITS: return 2
+      if state == 2 and word == ";": return 3
+      return 0
+    state = 1 # O estado inicial é 1
+    for word in entrie:
+      state = automato(state, word)
+    return True if state == 3 else False
+  return entrie[0] in TYPES and automato(entrie[1])
 
-for word, aceita in automato(entrie).items():
-  print(f"{word} - Aceita: {aceita}")
+def boolean(entrie: bool):
+  return "aceito" if entrie else "recusado"
+
+system("cls||clear")
+resul = automato(process(input("Entrada: ")))
+print(f"O conteúdo foi {boolean(resul)}!")
