@@ -48,9 +48,12 @@ def boolean(entrie: bool):
 system("cls||clear")
 entrie = input("Entrada: ")
 entrie = separationTypes(entrie)
+resfinal = True
 for elem in entrie:
   resul = autômato(elem)
+  resfinal = resfinal and resul[0]
   print(f"\nO conteúdo foi {boolean(resul[0])}!")
   print(f"As variáveis são do tipo {resul[1]}.")
   for word in resul[2]:
     print(f"\"{word[0]}\" foi {boolean(word[1])}")
+print(f"\nO resultado final é: {boolean(resfinal)}!")
