@@ -6,8 +6,6 @@ from string import ascii_letters, digits
 LETTERS, DIGITS = ascii_letters + "_", digits
 TYPES = ["int", "char", "bool", "float", "double"]
 
-entrie = input("Entrada: ").split()
-
 def automato(entrie: list[str]):
   if entrie[0] not in TYPES: return False             # Se a primeira palavra não for um tipo, retorna falso
   for word in entrie[1:]:                             # Pega o resto da string
@@ -17,4 +15,8 @@ def automato(entrie: list[str]):
       if letter not in LETTERS + DIGITS: return False # Se o resto da palavra não tiver somente letras e digitos, retorna falso
   return True                                         # Caso a string esteja dentro dos conformes, retorna verdadeiro
 
-print(f"Aceita: {automato(entrie)}")
+#Tipos de dados aceitos: "int", "char", "bool", "float", "double";
+for x in range( 0, 5):
+  entrie = input("Digite um dos dados de entrada da lista: ").split( )
+  automato( entrie )
+  print(f"Aceita: {automato(entrie)}")
