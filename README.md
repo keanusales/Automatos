@@ -84,4 +84,4 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   </tr>
 </table>
 
-[⬆ Voltar ao topo](#nome-do-projeto)<br>
+[⬆ Voltar ao topo](#implementação-de-um-afd-para-processar-tipos-e-nomes-de-variáveis)<br>
