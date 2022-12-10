@@ -16,7 +16,7 @@ def automato(entrie: list[str]):
   return True                                         # Caso a string esteja dentro dos conformes, retorna verdadeiro
 
 #Tipos de dados aceitos: "int", "char", "bool", "float", "double";
-for x in range( 0, 5):
+for x in range( 0, 7):
   entrie = input("Digite um dos dados de entrada da lista: ").split( )
   automato( entrie )
   print(f"Aceita: {automato(entrie)}")

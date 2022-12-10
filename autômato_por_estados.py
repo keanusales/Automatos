@@ -26,5 +26,8 @@ def boolean(entrie: bool):
   return "aceito" if entrie else "recusado"
 
 system("cls||clear")
-resul = autômato(input("Entrada: "))
-print(f"O conteúdo foi {boolean(resul)}!")
+
+#Tipos de dados aceitos: "int", "char", "bool", "float", "double";
+for x in range( 0, 6):
+  resul = autômato(input("Entrada: "))
+  print(f"O conteúdo foi {boolean(resul)}!")
