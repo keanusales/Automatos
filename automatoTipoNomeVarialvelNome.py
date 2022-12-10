@@ -1,4 +1,3 @@
-
 from os import system
 from itertools import product
 from string import ascii_letters, digits
