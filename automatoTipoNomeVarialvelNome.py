@@ -1,19 +1,20 @@
 from os import system
 from itertools import product
 from string import ascii_letters, digits
+from typing import List
 
 LETTERS = "_" + ascii_letters
 LDIGITS = LETTERS + digits
 TYPES = ["int", "char", "bool", "float", "double"]
 
-def verifyExclusives(entrie: list[str]):
+def verifyExclusives(entrie: List[str]):
   for type, elem in product(TYPES, entrie):
     if type in elem: return False
   return True
 
 def autômato(entrie: str):
   everyword = []
-  def autômato(entrie: list[str]):
+  def autômato(entrie: List[str]):
     INICIO, INTER, FINAL = 1, 1, 3
     def autômato(state: int, word: str):
       if state == 1 and word in LETTERS: return 2
